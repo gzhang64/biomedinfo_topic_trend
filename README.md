@@ -4,7 +4,7 @@
 
 Accurately characterizing research trends is critical for identifying emerging scientific breakthroughs and informing strategic research priorities. This repository provides a **generative AI–based pipeline** for large-scale retrospective analysis of scientific research domains, with a particular focus on **topic taxonomy construction, trend analysis, and topic evolution**.
 
-As a case study, the pipeline is applied to **two decades (2004–2024) of keyword data from submissions to the *Journal of Biomedical Informatics (JBI)***, enabling systematic analysis of methodological innovations and health domain trends in biomedical informatics.
+As a case study, the pipeline is applied to **keyword data from *Journal of Biomedical Informatics (JBI)* articles indexed in PubMed (2011–2025)**, enabling systematic analysis of methodological innovations and health domain trends in biomedical informatics.
 
 ---
 
@@ -21,20 +21,31 @@ The goals of this project are to:
 
 ---
 
+## Repository Structure
+
+| Notebook | Description |
+|---|---|
+| `00_download_data.ipynb` | Download JBI records from PubMed (E-utilities), keep articles with author keywords, and write `data/raw/jbi_pubmed_2011_2025_w_keywords.csv` |
+| `01_data_preprocessing.ipynb` | Normalize keywords, classify them into methodological (`M_group`) vs. health (`H_group`) domains with an LLM, and build keyword–PMID mappings |
+| `02_topic_extraction.ipynb` | Embed and cluster keywords, name topics, build hierarchical taxonomies, and compute topic relationships |
+
+---
+
 ## Methods
 
 ### Data Collection
 
-- Keywords were collected from **all JBI submissions between 2004 and 2024**
+- JBI articles are retrieved from **PubMed** for publication years **2001–2025**
+- Analysis uses the subset of articles that include author keywords, which spans **2011–2025** (`data/raw/jbi_pubmed_2011_2025_w_keywords.csv`; *n* = 2,427)
 
 ### Topic Construction Pipeline
 
-The pipeline leverages **large language models (LLMs)** to:
+The pipeline leverages **large language models (LLMs)** and sentence embeddings to:
 
 1. Categorize keywords into:
-   - Methodological innovation topics
-   - Health domain topics
-2. Identify latent topics from keyword groupings
+   - Methodological innovation topics (`M_group`)
+   - Health domain topics (`H_group`)
+2. Cluster keywords into latent topics (run once per domain; switch `M_group` ↔ `H_group` and `_m` ↔ `_h` paths accordingly)
 3. Assign interpretable topic names
 4. Construct **hierarchical topic taxonomies**
 5. Analyze temporal dynamics and topic relationships
@@ -81,7 +92,7 @@ The pipeline leverages **large language models (LLMs)** to:
 
 The pipeline enables:
 - Identification of prominent research areas
-- Longitudinal analysis of submission volume by topic
+- Longitudinal analysis of publication volume by topic
 - Keyword distribution shifts within topics
 - Detection of co-occurring and interdisciplinary research themes
 
@@ -92,7 +103,7 @@ The pipeline enables:
 - A **generalizable, LLM-driven framework** for large-scale research trend analysis
 - Automated construction and evaluation of **topic taxonomies**
 - Integration of **external biomedical ontologies (MeSH)** for validation
-- Empirical insights into the **evolution of biomedical informatics research** over 20 years
+- Empirical insights into the **evolution of biomedical informatics research** from 2011 to 2025
 
 ---
 
@@ -111,6 +122,15 @@ The pipeline enables:
 - Analyses are conducted at the **aggregate topic level**
 - Designed for retrospective, descriptive analysis of research trends
 
+---
+
+## Citation
+
+If you use this code, please cite:
+
+> Fang Y, Zhang G, Tejada SS, Chen F, Shortliffe E, Patel VL, Peleg M, Weng C. A data-driven method for research trend analysis in a scientific discipline: Application to the journal of biomedical informatics. J Biomed Inform. 2026 Jun;178:105013. doi: 10.1016/j.jbi.2026.105013. Epub 2026 Mar 14. PMID: 41839246; PMCID: PMC13032062.
+
+Paper: https://www.sciencedirect.com/science/article/pii/S1532046426000377
 
 ---
 
