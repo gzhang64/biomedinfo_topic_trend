@@ -17,7 +17,7 @@ The goals of this project are to:
 - Track **topic emergence, evolution, and decline** over time
 - Analyze **keyword evolution within topics**
 - Identify **co-occurring topics** and cross-cutting research themes
-- Provide **quantitative and human-validated evaluations** of generated topic structures
+- Provide **quantitative evaluations** of generated topic structures
 
 ---
 
@@ -43,9 +43,9 @@ The goals of this project are to:
 The pipeline leverages **large language models (LLMs)** and sentence embeddings to:
 
 1. Categorize keywords into:
-   - Methodological innovation topics (`M_group`)
-   - Health domain topics (`H_group`)
-2. Cluster keywords into latent topics (run once per domain; switch `M_group` ↔ `H_group` and `_m` ↔ `_h` paths accordingly)
+   - Methodological innovation topics
+   - Health domain topics
+2. Cluster keywords into latent topics
 3. Assign interpretable topic names
 4. Construct **hierarchical topic taxonomies**
 5. Analyze temporal dynamics and topic relationships
@@ -56,13 +56,6 @@ The pipeline leverages **large language models (LLMs)** and sentence embeddings 
 - Keyword-derived MeSH terms are compared against:
   - MeSH terms assigned by the National Library of Medicine (NLM) for accepted publications
 
-### Human Evaluation
-
-- A structured human survey evaluates:
-  - Topic name appropriateness
-  - Interpretability of methodological and health domain topics
-
----
 
 ## Key Contributions
 
