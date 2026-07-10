@@ -64,40 +64,6 @@ The pipeline leverages **large language models (LLMs)** and sentence embeddings 
 
 ---
 
-## Results
-
-### Topic Statistics
-
-**Methodological Innovations**
-- 2,276 distinct topics
-- Median of:
-  - 6 keywords per topic (Q1: 2, Q3: 25)
-  - 10 submissions per topic (Q1: 2, Q3: 60)
-
-**Health Domains**
-- 1,687 distinct topics
-- Median of:
-  - 6 keywords per topic (Q1: 2, Q3: 35)
-  - 9 submissions per topic (Q1: 2, Q3: 71.75)
-
-### Validation Findings
-
-- Among **2,984 accepted JBI submissions**:
-  - **85.1% (2,539)** show overlap between keyword-derived MeSH terms and NLM-assigned MeSH terms
-- Human evaluation scores:
-  - Methodological topic names: **3.78 / 5**
-  - Health domain topic names: **4.19 / 5**
-
-### Trend Analyses
-
-The pipeline enables:
-- Identification of prominent research areas
-- Longitudinal analysis of publication volume by topic
-- Keyword distribution shifts within topics
-- Detection of co-occurring and interdisciplinary research themes
-
----
-
 ## Key Contributions
 
 - A **generalizable, LLM-driven framework** for large-scale research trend analysis
